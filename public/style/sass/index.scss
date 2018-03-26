@@ -1,0 +1,46 @@
+//https://openclassrooms.com/courses/3363036/3370431?status=waiting-for-publication
+
+@mixin section($max-width){
+  margin: auto;
+  padding-top: 50px;
+  text-align: justify;
+  font-size: large;
+  max-width: $max-width;
+}
+
+@media (min-width: 1920px){
+  section{
+    @include section(30%);
+  }
+}
+
+@media (max-width: 1680px) {
+  section{
+    @include section(35%);
+  }
+}
+
+@media (max-width: 1440px) {
+  section{
+    @include section(40%);
+  }
+}
+
+@media (max-width: 1280px) {
+  section{
+    @include section(45%);
+  }
+}
+
+@media (max-width: 1024px) {
+  section{
+    @include section(55%);
+  }
+}
+
+@media (max-width: 480px) {
+  section{
+    @include section(90%);
+    padding-top: 25px;
+  }
+}

@@ -2,12 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e1e01bf-1edc-4aa1-8c2f-50fec4cbeba8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/admin.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/login.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/layout/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/btn-close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/menu/blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/menu/green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/menu/pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/menu/red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/menu/yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/.sass-cache/788c73cfcc617b208756d1f075c0adf30b46ddb2/index.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/.sass-cache/788c73cfcc617b208756d1f075c0adf30b46ddb2/login.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/.sass-cache/788c73cfcc617b208756d1f075c0adf30b46ddb2/menu.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/.sass-cache/788c73cfcc617b208756d1f075c0adf30b46ddb2/test.scssc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/login.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/index.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/login.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/login.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/css/menu.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/sass/index.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/sass/login.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/style/sass/menu.scss" />
     </list>
     <ignored path="Projet_6.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -203,6 +219,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet_6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projet_6" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -215,6 +245,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet_6\public" />
       <recent name="C:\wamp64\www\Projet_6\templates" />
       <recent name="C:\wamp64\www\Projet_6\translations" />
       <recent name="C:\wamp64\www\Projet_6\src\Entity" />
@@ -258,12 +289,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522090384162</updated>
       <workItem from="1522090385334" duration="7000" />
-      <workItem from="1522090416694" duration="836000" />
+      <workItem from="1522090416694" duration="971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="843000" />
+    <option name="totallyTimeSpent" value="978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

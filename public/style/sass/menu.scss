@@ -1,0 +1,63 @@
+//https://openclassrooms.com/courses/3363036/3370431?status=waiting-for-publication
+
+.nav-top-border {
+  background: #EA0296;
+  background: -webkit-linear-gradient(left, #FF99CC 50%, #EA0296 50%);
+  background: -moz-linear-gradient(left, #FF99CC 50%, #EA0296 50%);
+  background: -o-linear-gradient(left, #FF99CC 50%, #EA0296 50%);
+  background: linear-gradient(left, white 50%, #EA0296 50%);
+  background-size: 50px 25%;;
+  padding: 2px;
+  display: block;
+}
+
+li img{
+  width: auto;
+  height: 20px;
+  display: none;
+}
+
+li:hover img{
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  div.collapse.navbar-collapse{
+    display: flex;
+    justify-content: center;
+    margin-left: -150px;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 992px) {
+  li{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  li a{
+    padding-left: 20px !important;
+  }
+
+  li img{
+    display: block;
+  }
+}
