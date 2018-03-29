@@ -5,7 +5,7 @@
 
 <span class="nav-top-border"></span>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ path('homepage') }}">
         <img src="{{ asset('img/logo.png') }}" width="150" height="62" alt="logo_rivsourires">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a id="association" class="nav-link" href="#" style="color: #FF99CC;">L'association</a>
+                <a id="association" class="nav-link" href="{{ path('homepage') }}" style="color: #FF99CC;">L'association</a>
                 <img src="{{ asset('img/menu/pink.png') }}" alt="pelotte_laine_rose">
             </li>
             <li class="nav-item">
@@ -23,7 +23,7 @@
                 <img src="{{ asset('img/menu/green.png') }}" alt="pelotte_laine_rose">
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: #FFD455;">Actualités</a>
+                <a class="nav-link" href="{{ path('news') }}" style="color: #FFD455;">Actualités</a>
                 <img src="{{ asset('img/menu/yellow.png') }}" alt="pelotte_laine_rose">
             </li>
             <li class="nav-item">
@@ -36,6 +36,10 @@
                     <img src="{{ asset('img/menu/blue.png') }}" alt="pelotte_laine_bleue">
                 </li>
             {% else %}
+                <li class="{% if adminMenu is defined %}active{% endif %} nav-item">
+                    <a class="nav-link" href="{{ path('admin') }}" style="color: #BDCACA;"><span class="glyphicon glyphicon-cog"></span> Administration</a>
+                    <img src="{{ asset('img/menu/grey.png') }}" alt="pelotte_laine_grise">
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('logout') }}" style="color: #89B7D8;">Déconnexion</a>
                     <img src="{{ asset('img/menu/blue.png') }}" alt="pelotte_laine_bleue">

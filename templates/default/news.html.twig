@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <div class="posts-infos">
+            <p><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ post.publishedDate|date("d/m/Y à H:i", "Europe/Paris") }}</p>
+        </div>
+        <p>{{ post.content|slice(0, 800)|raw }}{% if post.content|length > 800 %}...{% endif %}</p>
+        <a href="{{ path('view-post', {'id' : post.id }) }}"><button type="button" class="btn-default btn">Lire la suite</button></a>
+    {% endfor %}
+{% endblock %}

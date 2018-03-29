@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <div>
+            {{ form_start(createPostForm) }}
+            {{ form_errors(createPostForm) }}
+
+            <div>
+                {{ form_label(createPostForm.imagePath) }}<br/>
+                {{ form_widget(createPostForm.imagePath) }}<br/>
+            </div>
+
+            <div>
+                {{ form_label(createPostForm.content) }}<br/>
+                {{ form_widget(createPostForm.content) }}<br/>
+            </div>
+
+            {{ form_widget(createPostForm.save) }}<br/>
+            {{ form_end(createPostForm) }}
+        </div>
+    </div>
+{% endblock %}
