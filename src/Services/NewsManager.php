@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entity\Post;
+use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -60,13 +61,22 @@ class BlogManager
         return $threeLastPosts;
     }
 
+    public function getPostsNumber() {
+
+        // Récupération des commentaires signalés
+        $postsNumber = $this->em->getRepository('App:Post')->getPostsNumber();
+
+        // Retourne les commentaires
+        return $postsNumber;
+    }
+
     public function setPost(Post $post) {
 
         // Publication automatique de l'article
         $post->setPublished(1);
         // Ajout de la date de publication
         $post->setPublishedDate(new \DateTime());
-        
+
         // Récupération de l'image sélectionnée si disponible
         $newFile = $post->getImagePath();
         // Récupération du chemin du dossier de stockage
