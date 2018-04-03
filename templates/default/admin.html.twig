@@ -1,125 +1,125 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2 class="text-center">{{ block('title') }}</h2>
+    <h2 class="text-center">Administration</h2>
     {% for flashMessage in app.session.flashbag.get('success') %}
         <div class="alert alert-success">
             {{ flashMessage }}
         </div>
     {% endfor %}
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#articles" data-toggle="tab">Articles</a>
-                </li>
-                {#<li>#}
-                    {#<a href="#users" data-toggle="tab">Utilisateurs</a>#}
-                {#</li>#}
-            </ul>
+    <div>
+        <div>
+            {{ form_start(createPostForm) }}
+            {{ form_errors(createPostForm) }}
+
+            <div>
+                {{ form_label(createPostForm.imagePath) }}<br/>
+                {{ form_widget(createPostForm.imagePath) }}<br/>
+            </div>
+
+            <div>
+                {{ form_label(createPostForm.content) }}<br/>
+                {{ form_widget(createPostForm.content) }}<br/>
+            </div>
+
+            {{ form_widget(createPostForm.save) }}<br/>
+            {{ form_end(createPostForm) }}
         </div>
     </div>
-    <div class="tab-content">
-        <div class="tab-pane fade in active adminTable" id="articles">
-            {% if posts %}
-                <div class="table-responsive">
-                    <table class="table table-hover table-condensed">
-                        <thead>
-                        <tr>
-                            <th>Article</th>
-                            <th>Contenu</th>
-                            <th></th>  <!-- Actions column -->
-                        </tr>
-                        </thead>
-                        {% for post in posts %}
-                            <tr>
-                                <td><a href="{{ path('news') }}">{{ post.id }}</a></td>
-                                <td>{{ post.content|raw }}</td>
-                                <td>
-                                    <a href="{{ path('edit-post', { 'id': post.id }) }}" class="btn btn-info btn-xs" title="Editer"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <button type="button" class="btn btn-danger btn-xs" title="Supprimer" data-toggle="modal" data-target="#billetDialog{{ post.id }}"><span class="glyphicon glyphicon-remove"></span>
-                                    </button>
-                                    <div class="modal fade" id="billetDialog{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <h4 class="modal-title" id="myModalLabel">Confirmation demandée</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Voulez-vous vraiment supprimer ce billet ?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                                    <a href="{{ path('delete-post', { 'id': post.id }) }}" class="btn btn-danger">Confirmer</a>
-                                                </div>
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            {% else %}
-                <div class="alert alert-warning">Pas encore d'articles.</div>
-            {% endif %}
-            <a href="{{ path('add-post') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter</button></a>
+    {% if posts %}
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>Article n°</th>
+                    <th>Contenu</th>
+                    <th>Actions</th>  <!-- Actions column -->
+                </tr>
+                </thead>
+                {% for post in posts %}
+                    <tr id="content">
+                        <td><a href="{{ path('view-post', {'id' : post.id }) }}">{{ post.id }}</a></td>
+                        <td>{{ post.content|raw }}</td>
+                        <td>
+                            <a href="{{ path('edit-post', { 'id': post.id }) }}" class="btn btn-info btn-xs" title="Editer"><span class="glyphicon glyphicon-edit"></span></a>
+                            <button type="button" class="btn btn-danger btn-xs" title="Supprimer" data-toggle="modal" data-target="#billetDialog{{ post.id }}"><span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <div class="modal fade" id="billetDialog{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirmation demandée</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Voulez-vous vraiment supprimer ce billet ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            <a href="{{ path('delete-post', { 'id': post.id }) }}" class="btn btn-danger">Confirmer</a>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr id="page_navigation"></tr>
+            </table>
         </div>
+    {% else %}
+        <div class="alert alert-warning">Pas encore d'articles.</div>
+    {% endif %}
+    <script>
 
-        {#</div>#}
-        {#<div class="tab-pane fade adminTable" id="users">#}
-            {#{% if users %}#}
-                {#<div class="table-responsive">#}
-                    {#<table class="table table-hover table-condensed">#}
-                        {#<thead>#}
-                        {#<tr>#}
-                            {#<th>Pseudo</th>#}
-                            {#<th>Role</th>#}
-                            {#<th></th>  <!-- Actions column -->#}
-                        {#</tr>#}
-                        {#</thead>#}
-                        {#{% for user in users %}#}
-                            {#<tr>#}
-                                {#<td>{{ user.username }}</a></td>#}
-                                {#<td>#}
-                                    {#{% if user.role == 'ROLE_ADMIN' %}#}
-                                        {#Administrateur#}
-                                    {#{% else %}#}
-                                        {#Utilisateur#}
-                                    {#{% endif %}#}
-                                {#</td>#}
-                                {#<td>#}
-                                    {#<a href="{{ path('admin_user_edit', { 'id': user.id }) }}" class="btn btn-info btn-xs" title="Editer"><span class="glyphicon glyphicon-edit"></span></a>#}
-                                    {#<button type="button" class="btn btn-danger btn-xs" title="Supprimer" data-toggle="modal" data-target="#userDialog{{ user.id }}"><span class="glyphicon glyphicon-remove"></span>#}
-                                    {#</button>#}
-                                    {#<div class="modal fade" id="userDialog{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
-                                        {#<div class="modal-dialog">#}
-                                            {#<div class="modal-content">#}
-                                                {#<div class="modal-header">#}
-                                                    {#<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>#}
-                                                    {#<h4 class="modal-title" id="myModalLabel">Confirmation demandée</h4>#}
-                                                {#</div>#}
-                                                {#<div class="modal-body">#}
-                                                    {#Voulez-vous vraiment supprimer cet utilisateur ?#}
-                                                {#</div>#}
-                                                {#<div class="modal-footer">#}
-                                                    {#<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>#}
-                                                    {#<a href="{{ path('admin_user_delete', { 'id': user.id }) }}" class="btn btn-danger">Confirmer</a>#}
-                                                {#</div>#}
-                                            {#</div><!-- /.modal-content -->#}
-                                        {#</div><!-- /.modal-dialog -->#}
-                                    {#</div><!-- /.modal -->#}
-                                {#</td>#}
-                            {#</tr>#}
-                        {#{% endfor %}#}
-                    {#</table>#}
-                {#</div>#}
-            {#{% else %}#}
-                {#<div class="alert alert-warning">Pas d'utilisateurs.</div>#}
-            {#{% endif %}#}
-            {#<a href="{{ path('admin_user_add') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter</button></a>#}
+        var show_per_page = 3;
+        var current_page = 0;
 
-        {#</div>#}
-    {#</div>#}
+        function set_display(first, last) {
+            $('#content').children().css('display', 'none');
+            $('#content').children().slice(first, last).css('display', 'block');
+        }
+
+        function previous(){
+            if($('.active').prev('.page_link').length) go_to_page(current_page - 1);
+        }
+
+        function next(){
+            if($('.active').next('.page_link').length) go_to_page(current_page + 1);
+        }
+
+        function go_to_page(page_num){
+            current_page = page_num;
+            start_from = current_page * show_per_page;
+            end_on = start_from + show_per_page;
+            set_display(start_from, end_on);
+            $('.active').removeClass('active');
+            $('#id' + page_num).addClass('active');
+        }
+
+        $(document).ready(function() {
+
+            var number_of_pages = Math.ceil($('#content').children().length / show_per_page);
+
+            var nav = '<ul class="pagination"><li><a href="javascript:previous();">&laquo;</a>';
+
+            var i = -1;
+            while(number_of_pages > ++i){
+                nav += '<li class="page_link'
+                if(!i) nav += ' active';
+                nav += '" id="id' + i +'">';
+                nav += '<a href="javascript:go_to_page(' + i +')">'+ (i + 1) +'</a>';
+            }
+            nav += '<li><a href="javascript:next();">&raquo;</a></ul>';
+
+            $('#page_navigation').html(nav);
+            set_display(0, show_per_page);
+
+        });
+
+    </script>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/admin.js') }}"></script>
 {% endblock %}

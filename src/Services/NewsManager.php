@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Entity\Post;
-use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -11,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
-class BlogManager
+class NewsManager
 {
     private $em;
     private $request;

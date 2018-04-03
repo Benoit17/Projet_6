@@ -6,169 +6,75 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use App\Services\BlogManager;
+use App\Services\NewsManager;
 use App\Entity\Post;
 use App\Form\PostType;
 
 
-class DefaultController extends Controller
+class AdminController extends Controller
 
 {
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function index(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig');
-    }
-
-    /**
-     * @param AuthenticationUtils $authUtils
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @Route("/connexion", name="login")
-     * @Method({"GET", "POST"})
-     */
-    public function login(AuthenticationUtils $authUtils, Request $request)
-    {
-        // récupération des erreurs si il y en a
-        $error = $authUtils->getLastAuthenticationError();
-        if($error !== null){
-            $response = '<div class="alert alert-danger justify-content-center flash-msg-cnx">Nom d\'utilisateur ou mot de passe invalide</div>';
-            return new Response($response, 400);
-        }
-
-        // dernier nom d'utilisateur saisie par l'utilisateur
-        $lastUsername = $authUtils->getLastUsername();
-        return $this->render('default/login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error'         => $error,
-        ));
-    }
-
-    /**
-     * @param BlogManager $blogManager
-     * @return Response
-     *
-     * @Route("/actualites", name="news")
-     * @Method("GET")
-     */
-    public function news(BlogManager $blogManager)
-    {
-        // Récupération de tous les articles
-        $posts = $blogManager->getPosts();
-
-        // Récupération des 3 derniers articles rédigés
-        $threeLastPost = $blogManager->getThreeLastPosts();
-
-        return $this->render("default/news.html.twig", array(
-            'posts' => $posts,
-            'threeLastPost' => $threeLastPost,
-        ));
-    }
-
-    /**
-     * @param $id
-     * @param BlogManager $blogManager
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     *
-     * @Route("/actualites/article/{id}", name="view-post")
-     * @Method({"GET", "POST"})
-     */
-    public function post($id, BlogManager $blogManager, Request $request) {
-        // Récupération de l'article via son id
-        $post = $blogManager->getPost($id);
-
-        // Récupération des 3 derniers articles rédigés
-        $threeLastPost = $blogManager->getThreeLastPosts();
-
-        return $this->render("default/post.html.twig", array(
-            'post' => $post,
-            'threeLastPost' => $threeLastPost,
-        ));
-    }
 
     /**
      * @param Request $request
-     * @param BlogManager $blogManager
+     * @param NewsManager $newsManager
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      *
      * @Route("/admin", name="admin")
      * @Method({"GET", "POST"})
      */
-    public function admin(Request $request, BlogManager $blogManager)
+    public function indexAdmin(Request $request, NewsManager $newsManager)
     {
-
-        /* Utilisateurs */
-        $user = $this->getUser();
-
-        // Test si l'utilisateur est anonyme et redirige vers une page 403
-        if($user === null) {
-            throw new \Exception("Vous ne pouvez pas accéder à cette page", 403);
-        }
-
         /* Articles */
+        
         // Récupération de tous les articles
-        $posts = $blogManager->getPosts();
-        return $this->render('default/admin.html.twig', array(
-            'posts' => $posts,
-        ));
-    }
+        $posts = $newsManager->getPosts();
 
-    /**
-     * @param BlogManager $blogManager
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     *
-     * @Route("/admin/add/article", name="add-post")
-     * @Method({"GET", "POST"})
-     */
-    public function addPost(Request $request, BlogManager $blogManager) {
         $post = new Post();
         $createPostForm = $this->get('form.factory')->create(PostType::class, $post);
         $createPostForm->handleRequest($request);
         if ($createPostForm->isSubmitted() && $createPostForm->isValid()) {
             // Enregistrement du nouvel article
-            $blogManager->setPost($post);
+            $newsManager->setPost($post);
             $this->addFlash(
                 'success',
-                'Votre article a été publié!'
+                'Article publié!'
             );
             // Redirect to admin home page
             return $this->redirectToRoute('admin');
         }
-        return $this->render("default/admin_post.html.twig", array(
-            'title' => 'Nouveau billet',
+        
+        return $this->render('default/admin.html.twig', array(
+            'title' => 'Administration',
             'createPostForm' => $createPostForm->createView(),
+            'posts' => $posts
         ));
     }
 
+    /*--------------------------------Articles--------------------------------*/
+
     /**
      * @param $id
-     * @param BlogManager $blogManager
+     * @param NewsManager $newsManager
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
      * @Route("/admin/edit/article/{id}", name="edit-post")
      * @Method({"GET", "POST"})
      */
-    public function editPost($id, Request $request, BlogManager $blogManager) {
+    public function editPost($id, Request $request, NewsManager $newsManager) {
         // Récupération de l'article via son id
-        $post = $blogManager->getPost($id);
+        $post = $newsManager->getPost($id);
         $createPostForm = $this->get('form.factory')->create(PostType::class, $post);
         $createPostForm->handleRequest($request);
         if ($createPostForm->isSubmitted() && $createPostForm->isValid()) {
             // Enregistrement du nouvel article
-            $blogManager->setPost($post);
+            $newsManager->setPost($post);
             $this->addFlash(
                 'success',
-                'Votre article a été édité!'
+                'Article édité!'
             );
             // Redirect to admin home page
             return $this->redirectToRoute('admin');
@@ -181,18 +87,18 @@ class DefaultController extends Controller
 
     /**
      * @param $id
-     * @param BlogManager $blogManager
+     * @param NewsManager $newsManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
      * @Route("/admin/supp/article/{id}", name="delete-post")
      * @Method({"GET", "POST"})
      */
-    public function deletePost($id, BlogManager $blogManager) {
+    public function deletePost($id, NewsManager $newsManager) {
         // Delete the billet
-        $blogManager->deletePost($id);
+        $newsManager->deletePost($id);
         $this->addFlash(
             'success',
-            'Votre article a été supprimé!'
+            'Article supprimé!'
         );
         // Redirect to admin home page
         return $this->redirectToRoute('admin');
