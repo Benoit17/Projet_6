@@ -15,12 +15,21 @@ class DefaultController extends Controller
 
 {
     /**
+     * @param Request $request
+     * @param NewsManager $newsManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
      * @Route("/", name="homepage")
      */
-    public function index(Request $request)
+    public function index(Request $request, NewsManager $newsManager)
     {
+        $posts = $newsManager->getPosts();
+        $photos = $newsManager->getPhotosPath();
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig');
+        return $this->render('default/index.html.twig', array(
+            'posts' => $posts,
+            'photos' => $photos
+        ));
     }
 
     /**
@@ -58,7 +67,7 @@ class DefaultController extends Controller
     public function news(NewsManager $newsManager)
     {
         // Récupération de tous les articles
-        $posts = $newsManager->getPosts();
+        $posts = $newsManager->getPaginatedPostsList();
 
         // Récupération des 3 derniers articles rédigés
         $threeLastPost = $newsManager->getThreeLastPosts();

@@ -4,6 +4,16 @@
 {% endblock %}
 
 {% block body %}
+    {% if threeLastPost|length != 0 %}
+        <h5>Derniers articles publiés</h5>
+        <hr>
+        {% for lastPost in threeLastPost %}
+            <div class="space">
+                <p><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ lastPost.publishedDate|date("d/m/Y à H:i", "Europe/Paris") }}</p>
+                <p>{{ lastPost.id }} -- <a href="{{ path('view-post', {'id' : lastPost.id}) }}">Lire</a></p>
+            </div>
+        {% endfor %}
+    {% endif %}
     {% for post in posts %}
         <div class="posts-infos">
             <p><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ post.publishedDate|date("d/m/Y à H:i", "Europe/Paris") }}</p>
@@ -11,4 +21,5 @@
         <p>{{ post.content|slice(0, 800)|raw }}{% if post.content|length > 800 %}...{% endif %}</p>
         <a href="{{ path('view-post', {'id' : post.id }) }}"><button type="button" class="btn-default btn">Lire la suite</button></a>
     {% endfor %}
+    <div class="text-center">{{ knp_pagination_render(posts) }}</div>
 {% endblock %}

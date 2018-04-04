@@ -9,6 +9,19 @@
 
 {% block body %}
     <section>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                {% for post in posts  %}
+                    <div class="carousel-item">
+                        <a href="{{ path('view-post', {'id' : post.id }) }}">
+                            <img class="d-block img-fluid" src="{{ asset(post.imagePath) }}" alt="test">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section>
         <p>
             Nous sommes heureux de vous accueillir sur le site web de Riv'sourires.
             Nous sommes là pour donner le sourire non seulement aux personnes à qui nous dédions nos travaux :
@@ -20,4 +33,8 @@
             Marie-Françoise et Chantal
         </p>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/index.js') }}"></script>
 {% endblock %}

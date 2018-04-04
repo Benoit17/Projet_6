@@ -8,6 +8,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
 
 
 class NewsManager
@@ -17,18 +18,21 @@ class NewsManager
     private $session;
     private $fileSystem;
     private $postsDirectory;
+    private $paginator;
 
     public function __construct(EntityManagerInterface $em,
                                 RequestStack $request,
                                 SessionInterface $session,
                                 Filesystem $filesystem,
-                                $postsDirectory)
+                                $postsDirectory,
+                                $paginator)
     {
         $this->em = $em;
         $this->request = $request;
         $this->session = $session;
         $this->fileSystem = $filesystem;
         $this->postsDirectory = $postsDirectory;
+        $this->paginator = $paginator;
 
     }
 
@@ -113,5 +117,37 @@ class NewsManager
         $this->em->remove($post);
         $this->em->flush();
     }
-    
+
+    /* PAGINATEUR */
+
+    /**
+     * Pagine la liste de tous les articles
+     * @return \Knp\Component\Pager\Pagination\PaginationInterface
+     */
+    public function getPaginatedPostsList()
+    {
+        // récupère la liste des questions/réponses
+        $postsList = $this->getPosts();
+        // récupère le service knp paginator
+        $paginator  = $this->paginator;
+
+        // retourne les questions /réponse paginé selon la page passé en get
+        return $paginator->paginate(
+            $postsList/*$query*/, /* query NOT result */
+            $this->request->getCurrentRequest()->query->getInt('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+    }
+
+    public function getPhotosPath() {
+        // Récupération des articles
+        $posts = $this->getPosts();
+
+        $photos = array();
+
+        foreach ($posts as $post) {
+            array_push($photos, $post->getImagePath());
+        }
+        return $photos;
+    }
 }
