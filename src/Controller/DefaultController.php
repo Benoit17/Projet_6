@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use App\Form\ContactType;
 use App\Services\NewsManager;
+use App\Services\MailManager;
 
 
 class DefaultController extends Controller
@@ -17,18 +19,35 @@ class DefaultController extends Controller
     /**
      * @param Request $request
      * @param NewsManager $newsManager
+     * @param Mailmanager $mailManager
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @Route("/", name="homepage")
      */
-    public function index(Request $request, NewsManager $newsManager)
+    public function index(Request $request, NewsManager $newsManager, MailManager $mailManager)
     {
-        $posts = $newsManager->getPosts();
+        // Récupération des 3 derniers articles rédigés
+        $threeLastPosts = $newsManager->getThreeLastPosts();
+        
         $photos = $newsManager->getPhotosPath();
+
+        $contactForm = $this->get('form.factory')->create(ContactType::class);
+        $contactForm->handlerequest($request);
+        // Soumission du formulaire
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            // Récupération des données du formulaire
+            $data = $contactForm->getData();
+
+            // Préparation de l'email et envoi
+            $mailManager->sendMail($data);
+
+            return $this->redirectToRoute('homepage');
+        }
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
-            'posts' => $posts,
-            'photos' => $photos
+            'threeLastPosts' => $threeLastPosts,
+            'photos' => $photos,
+            'contactForm' => $contactForm->createView()
         ));
     }
 
@@ -98,5 +117,15 @@ class DefaultController extends Controller
             'post' => $post,
             'threeLastPost' => $threeLastPost,
         ));
+    }
+    
+    /**
+     * @param Request $request
+     * @return Response
+     *
+     *
+     */
+    public function contact(Request $request){
+
     }
 }

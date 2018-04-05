@@ -55,36 +55,6 @@ class AdminController extends Controller
 
     /*--------------------------------Articles--------------------------------*/
 
-//    /**
-//     * @param $id
-//     * @param NewsManager $newsManager
-//     * @param Request $request
-//     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-//     *
-//     * @Route("/admin/edit/article/{id}", name="edit-post")
-//     * @Method({"GET", "POST"})
-//     */
-//    public function editPost($id, Request $request, NewsManager $newsManager) {
-//        // Récupération de l'article via son id
-//        $post = $newsManager->getPost($id);
-//        $createPostForm = $this->get('form.factory')->create(PostType::class, $post);
-//        $createPostForm->handleRequest($request);
-//        if ($createPostForm->isSubmitted() && $createPostForm->isValid()) {
-//            // Enregistrement du nouvel article
-//            $newsManager->setPost($post);
-//            $this->addFlash(
-//                'success',
-//                'Article édité!'
-//            );
-//            // Redirect to admin home page
-//            return $this->redirectToRoute('admin');
-//        }
-//        return $this->render("default/admin_post.html.twig", array(
-//            'title' => 'Edition billet',
-//            'createPostForm' => $createPostForm->createView(),
-//        ));
-//    }
-
     /**
      * @param $id
      * @param Request $request
