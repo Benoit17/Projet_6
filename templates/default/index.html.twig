@@ -18,17 +18,25 @@
                         <a href="{{ path('view-post', {'id' : post.id }) }}">
                             <img class="d-block" src="{{ asset(post.imagePath) }}" alt="test">
                         </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{ post.title|slice(0, 20)|raw }}</p>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="arrow">
+                <a href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div>
+            {% include "default/knit.html.twig" %}
         </div>
     </header>
 {% endblock %}
@@ -45,6 +53,9 @@
             Nous réalisons des travaux au tricot, au crochet, en couture... la couleur, la douceur sont nos alliées dans nos ateliers.
             Marie-Françoise et Chantal
         </p>
+        <div >
+            {% include "default/knit.html.twig" %}
+        </div>
     </section>
     <section id="contact">
         <div>

@@ -1,0 +1,185 @@
+@mixin Border($bkg1, $bkg2){
+  background: $bkg1;
+  background: -webkit-linear-gradient(left, $bkg2 50%, $bkg1 50%);
+  background: -moz-linear-gradient(left, $bkg2 50%, $bkg1 50%);
+  background: -o-linear-gradient(left, $bkg2 50%, $bkg1 50%);
+  background: linear-gradient(left, white 50%, $bkg1 50%);
+  background-size: 50px 25%;;
+  padding: 2px;
+  display: block;
+}
+
+.border-pink{
+  @include Border(#EA0296, #FF99CC)
+}
+
+.border-blue{
+  @include Border(#89B7D8, #34729E)
+}
+
+.border-green{
+  @include Border(#AFE177, #619922)
+}
+
+.border-grey{
+  @include Border(#4B5F5F, #BDCACA)
+}
+
+.border-yellow{
+  @include Border(#FFAA2A, #FFD455)
+}
+
+.border-red{
+  @include Border(#FF5556, #ED3636)
+}
+
+.form-control{
+  height: 50px;
+  border-radius: 0;
+  box-shadow: 1px 1px 20px #DCDCDC;
+}
+
+.btn {
+  background-color: #333;
+  color: #f9f9f9;
+  font-family: 'Montserrat', sans-serif;
+  word-spacing: 1.5px;
+  z-index: 0;
+  padding: 6px 12px;
+  margin: 0 2px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.42857143;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  box-shadow: 6px 8px 10px #DCDCDB !important
+}
+
+header img{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-bottom: rgb(102, 102, 102) solid 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-caption {
+  font-size: small;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.carousel-indicators {
+  bottom: -5px;
+}
+
+.carousel-control-prev-icon {
+  background-image: url(../../img/arrow-left.png);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: -25px;
+}
+
+.carousel-control-next-icon {
+  background-image: url(../../img/arrow-right.png);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -25px;
+}
+
+.arrow{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin Section($max-width){
+  margin: auto;
+  padding-top: 50px;
+  text-align: justify;
+  font-size: large;
+  max-width: $max-width;
+}
+
+@media (min-width: 1920px){
+  section, header{
+    @include Section(30%);
+  }
+}
+
+@media (max-width: 1680px) {
+  section, header{
+    @include Section(35%);
+  }
+}
+
+@media (max-width: 1440px) {
+  section, header{
+    @include Section(40%);
+  }
+}
+
+@media (max-width: 1280px) {
+  section, header{
+    @include Section(55%);
+  }
+}
+
+@media (max-width: 1024px) {
+  section, header{
+    @include Section(70%);
+  }
+}
+
+@media (max-width: 750px) {
+  section, header{
+    @include Section(80%);
+  }
+  header img{
+    border-bottom: rgb(102, 102, 102) solid 20px;
+  }
+}
+
+@media (max-width: 530px) {
+  section, header{
+    @include Section(85%);
+  }
+  header img{
+    border-bottom: rgb(102, 102, 102) solid 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  section, header{
+    @include Section(90%);
+  }
+
+  header img{
+    border-bottom: rgb(102, 102, 102) solid 20px;
+  }
+}

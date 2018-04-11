@@ -28,8 +28,6 @@ class DefaultController extends Controller
     {
         // Récupération des 3 derniers articles rédigés
         $threeLastPosts = $newsManager->getThreeLastPosts();
-        
-        $photos = $newsManager->getPhotosPath();
 
         $contactForm = $this->get('form.factory')->create(ContactType::class);
         $contactForm->handlerequest($request);
@@ -46,7 +44,6 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'threeLastPosts' => $threeLastPosts,
-            'photos' => $photos,
             'contactForm' => $contactForm->createView()
         ));
     }
@@ -89,11 +86,11 @@ class DefaultController extends Controller
         $posts = $newsManager->getPaginatedPostsList();
 
         // Récupération des 3 derniers articles rédigés
-        $threeLastPost = $newsManager->getThreeLastPosts();
+        $threeLastPosts = $newsManager->getThreeLastPosts();
 
         return $this->render("default/news.html.twig", array(
             'posts' => $posts,
-            'threeLastPost' => $threeLastPost,
+            'threeLastPosts' => $threeLastPosts,
         ));
     }
 

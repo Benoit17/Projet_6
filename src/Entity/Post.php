@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
-
 /**
  * Post
  *
@@ -29,6 +25,21 @@ class Post
      * @ORM\Column(name="published", type="boolean")
      */
     private $published;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Veuillez saisir un titre d'article valide.")
+     * @Assert\NotNull()
+     * @Assert\Length(
+     *     min="2",
+     *     max="150",
+     *     minMessage="Votre titre doit comporter au minimun {{ limit }} caractères.",
+     *     maxMessage="Votre titre doit comporter au maximun{{ limit }} caractères."
+     * )
+     */
+    private $title;
 
     /**
      * @var string
@@ -80,7 +91,6 @@ class Post
     public function setPublished($published)
     {
         $this->published = $published;
-
         return $this;
     }
 
@@ -95,6 +105,30 @@ class Post
     }
 
     /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Post
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set content
      *
      * @param string $content
@@ -104,7 +138,6 @@ class Post
     public function setContent($content)
     {
         $this->content = $content;
-
         return $this;
     }
 
@@ -128,7 +161,6 @@ class Post
     public function setImagePath($imagePath)
     {
         $this->imagePath = $imagePath;
-
         return $this;
     }
 
@@ -152,7 +184,6 @@ class Post
     public function setPublishedDate($publishedDate)
     {
         $this->publishedDate = $publishedDate;
-
         return $this;
     }
 
