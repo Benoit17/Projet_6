@@ -13,16 +13,8 @@
   @include Border(#EA0296, #FF99CC)
 }
 
-.border-blue{
-  @include Border(#89B7D8, #34729E)
-}
-
 .border-green{
   @include Border(#AFE177, #619922)
-}
-
-.border-grey{
-  @include Border(#4B5F5F, #BDCACA)
 }
 
 .border-yellow{
@@ -33,10 +25,22 @@
   @include Border(#FF5556, #ED3636)
 }
 
+.border-grey{
+  @include Border(#4B5F5F, #BDCACA)
+}
+
+.border-blue{
+  @include Border(#89B7D8, #34729E)
+}
+
 .form-control{
   height: 50px;
   border-radius: 0;
   box-shadow: 1px 1px 20px #DCDCDC;
+}
+
+#contact_message{
+  height: 350px;
 }
 
 .btn {
@@ -76,22 +80,50 @@ header img{
   overflow: hidden;
 }
 
-.carousel-inner {
-  position: relative;
-  overflow: hidden;
-}
-
 .carousel-caption {
   font-size: small;
   right: 0;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .carousel-indicators {
-  bottom: -5px;
+  bottom: -50px;
+}
+
+@mixin carouselLi($background-image){
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  background-image: $background-image;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.carousel-indicators li:first-child {
+  @include carouselLi(url(../../img/menu/pink.png))
+}
+
+.carousel-indicators li:nth-child(2) {
+  @include carouselLi(url(../../img/menu/green.png))
+}
+
+.carousel-indicators li:last-child {
+  @include carouselLi(url(../../img/menu/yellow.png))
+}
+
+.carousel-indicators .active {
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .carousel-control-prev-icon {
@@ -118,56 +150,74 @@ header img{
   justify-content: space-between;
 }
 
-@mixin Section($max-width){
+@mixin SH($max-width){
   margin: auto;
-  padding-top: 50px;
   text-align: justify;
   font-size: large;
   max-width: $max-width;
 }
 
-@media (min-width: 1920px){
-  section, header{
-    @include Section(30%);
+@media (min-width: 1920px) {
+  section{
+    @include SH(50%);
+  }
+  header{
+    @include SH(25%);
   }
 }
 
-@media (max-width: 1680px) {
-  section, header{
-    @include Section(35%);
+@media (min-width: 1680px) and (max-width: 1920px) {
+  section{
+    @include SH(50%);
+  }
+  header{
+    @include SH(25%);
   }
 }
 
-@media (max-width: 1440px) {
-  section, header{
-    @include Section(40%);
+
+@media (min-width: 1440px) and (max-width: 1680px) {
+  section{
+    @include SH(50%);
+  }
+  header{
+    @include SH(30%);
   }
 }
 
-@media (max-width: 1280px) {
-  section, header{
-    @include Section(55%);
+@media (min-width: 1024px) and (max-width: 1440px) {
+  section{
+    @include SH(55%);
+  }
+  header{
+    @include SH(40%);
   }
 }
 
-@media (max-width: 1024px) {
-  section, header{
-    @include Section(70%);
+@media (min-width: 750px) and (max-width: 1024px) {
+  section{
+    @include SH(70%);
+  }
+  header{
+    @include SH(40%);
   }
 }
 
-@media (max-width: 750px) {
-  section, header{
-    @include Section(80%);
+@media (min-width: 530px) and (max-width: 750px) {
+  section{
+    @include SH(80%);
+  }
+  header{
+    @include SH(60%);
   }
   header img{
     border-bottom: rgb(102, 102, 102) solid 20px;
   }
 }
 
-@media (max-width: 530px) {
+@media (min-width: 480px) and (max-width: 530px) {
   section, header{
-    @include Section(85%);
+    @include SH(85%);
   }
   header img{
     border-bottom: rgb(102, 102, 102) solid 20px;
@@ -175,11 +225,26 @@ header img{
 }
 
 @media (max-width: 480px) {
-  section, header{
-    @include Section(90%);
+  header{
+    @include SH(90%);
+  }
+  section{
+    @include SH(100%);
   }
 
   header img{
     border-bottom: rgb(102, 102, 102) solid 20px;
+  }
+
+  .carousel-control-prev-icon {
+    width: 20px;
+    height: 20px;
+    left: -12px;
+  }
+
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    right: -12px;
   }
 }

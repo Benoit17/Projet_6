@@ -14,6 +14,12 @@ $(function(){
         var h = H/2;
         $('.arrow').css('bottom', h);
     });
+
+    var Hmap = $('#map').width();
+    $('#map').height(Hmap);
+
+    $( window ).resize(function() {
+        var Hmap = $( "#map" ).width();
+        $('#map').height(Hmap);
+    });
 });
-
-

@@ -1,7 +1,9 @@
-<footer>
-    <canvas id="scarf"></canvas>
+<footer style="text-align: center; background-color: #212529;">
+    <span class="nav-top-border"></span>
+    <div class="d-flex flex-column">
+        <a href="{{ path('homepage') }}">
+            <img style="margin: 25px 0 25px 0;" src="{{ asset('img/logo.png') }}" width="120" height="50" alt="logo_rivsourires">
+        </a>
+        <a href="https://www.facebook.com/rivsourires/"><i class="fa fa-facebook-f"></i></a>
+    </div>
 </footer>
-
-{% block javascripts %}
-    <script src="{{ asset('js/footer.js') }}"></script>
-{% endblock %}

@@ -16,6 +16,23 @@ li img {
 li:hover img {
   display: block; }
 
+a .fa .fa-facebook-f {
+  color: #4867AA; }
+
+.fa-facebook-f {
+  color: white;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #4867AA;
+  border-radius: 50%;
+  background-color: #4867AA; }
+
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1.5rem;
@@ -47,4 +64,4 @@ li:hover img {
   li img {
     display: block; } }
 
-/*# sourceMappingURL=menu.css.map */
+/*# sourceMappingURL=layout.css.map */
