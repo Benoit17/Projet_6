@@ -10,6 +10,7 @@
 
 header{
   padding: 40px 0 50px 0;
+  background-color: rgba(137, 183, 216, 0.1);
 }
 
 #presentation{
@@ -25,6 +26,11 @@ header{
 #contact{
   padding: 40px;
   background-color: rgba(189, 202, 202, 0.1);
+}
+
+#participate{
+  padding: 40px;
+  background-color: rgba(175, 225, 119, 0.1);
 }
 
 #contact_message{
@@ -50,6 +56,17 @@ canvas{
   @include Pic;
 }
 
+#participate img{
+  @include Pic;
+}
+
+#participate > div:nth-child(2) img{
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 0.5rem;
+}
+
 #location p{
   margin: 0 0 0 5px;
 }
@@ -72,13 +89,47 @@ canvas{
   color: #EA0296;
 }
 
-.test{
+#location > div:first-child{
   display: flex;
   justify-content: space-between;
 }
 
+#participate > div:nth-child(2){
+  height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 50px;
+  padding-left: 20px
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: -webkit-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
+  background: -moz-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
+  background: -o-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
+  background-size: 7%;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:vertical
+{
+  background: transparent url(../../img/zipper-3.png) no-repeat;
+  background-size:100%;
+}
+
+//.test{
+//  display: flex;
+//  flex-wrap: wrap;
+//}
+
 @media (max-width: 1024px) {
-  .test{
+  #location > div:first-child{
     flex-direction: column;
   }
 
@@ -88,5 +139,32 @@ canvas{
 
   #map{
     margin: auto;
+  }
+}
+
+@media (max-width: 530px) {
+  #location > div:first-child{
+    flex-direction: column;
+  }
+
+  .informations{
+    margin: 30px auto 30px auto;
+  }
+
+  #map{
+    width: 275px;
+    margin: auto;
+  }
+
+  #participate > div:nth-child(2) .d-flex.align-items-center img{
+    display: none;
+  }
+
+  ul{
+    padding-left: 0;
+  }
+
+  section, header{
+    max-width: 100% !important;
   }
 }

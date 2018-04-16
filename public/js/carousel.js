@@ -1,14 +1,14 @@
 $(function(){
     $('.carousel-item:first-child').attr('class', 'carousel-item active');
 
-    var H = $('header').width();
+    var H = $('#carouselExampleIndicators').width();
     $('div.carousel-item').height(H);
 
     var h = H/2;
     $('.arrow').css('bottom', h);
 
     $( window ).resize(function() {
-        var H = $( "header" ).width();
+        var H = $( "#carouselExampleIndicators" ).width();
         $('div.carousel-item').height(H);
 
         var h = H/2;

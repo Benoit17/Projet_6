@@ -8,6 +8,10 @@
   padding: 2px;
   display: block; }
 
+.navbar-dark .navbar-toggler {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: #343a40; }
+
 li img {
   width: auto;
   height: 20px;

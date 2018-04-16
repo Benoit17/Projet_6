@@ -58,6 +58,9 @@
   padding: 2px;
   display: block; }
 
+p {
+  margin-bottom: 0; }
+
 .form-control {
   height: 50px;
   border-radius: 0;
@@ -104,7 +107,7 @@ header img {
 .carousel-caption {
   font-size: small;
   right: 0;
-  bottom: -5px;
+  bottom: 6px;
   left: 0;
   padding-top: 5px;
   padding-bottom: 5px; }
@@ -183,97 +186,97 @@ header img {
   justify-content: space-between; }
 
 @media (min-width: 1920px) {
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 50%; }
 
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 25%; } }
+    max-width: 50%; } }
 @media (min-width: 1680px) and (max-width: 1920px) {
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 50%; }
 
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 25%; } }
+    max-width: 50%; } }
 @media (min-width: 1440px) and (max-width: 1680px) {
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 50%; }
 
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 30%; } }
+    max-width: 70%; } }
 @media (min-width: 1024px) and (max-width: 1440px) {
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 55%; }
 
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 40%; } }
+    max-width: 70%; } }
 @media (min-width: 750px) and (max-width: 1024px) {
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 70%; }
 
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 40%; } }
+    max-width: 70%; } }
 @media (min-width: 530px) and (max-width: 750px) {
-  section {
-    margin: auto;
-    text-align: justify;
-    font-size: large;
-    max-width: 80%; }
-
-  header {
-    margin: auto;
-    text-align: justify;
-    font-size: large;
-    max-width: 60%; }
-
-  header img {
-    border-bottom: #666666 solid 20px; } }
-@media (min-width: 480px) and (max-width: 530px) {
   section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
-    max-width: 85%; }
+    max-width: 100%; }
+
+  #carouselExampleIndicators {
+    margin: auto;
+    text-align: justify;
+    font-size: large;
+    max-width: 70%; }
+
+  header img {
+    border-bottom: #666666 solid 20px; } }
+@media (min-width: 480px) and (max-width: 530px) {
+  section, header, #carouselExampleIndicators {
+    margin: auto;
+    text-align: justify;
+    font-size: large;
+    max-width: 100%; }
 
   header img {
     border-bottom: #666666 solid 20px; } }
 @media (max-width: 480px) {
-  header {
+  #carouselExampleIndicators {
     margin: auto;
     text-align: justify;
     font-size: large;
     max-width: 90%; }
 
-  section {
+  section, header {
     margin: auto;
     text-align: justify;
     font-size: large;
