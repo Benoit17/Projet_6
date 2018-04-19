@@ -1,4 +1,4 @@
-//https://openclassrooms.com/courses/3363036/3370431?status=waiting-for-publication
+/*---------------------------------- Menu ----------------------------------*/
 
 .nav-top-border {
   background: #EA0296;
@@ -26,6 +26,8 @@ li:hover img{
   display: block;
 }
 
+/*---------------------------------- Footer ----------------------------------*/
+
 a .fa .fa-facebook-f{
   color: #4867AA;
 }
@@ -37,13 +39,6 @@ a .fa .fa-facebook-f{
   border: 1px solid #4867AA;
   border-radius: 50%;
   background-color: #4867AA;
-}
-
-hr {
-  margin-top: 0;
-  margin-bottom: 0;
-  border: 0;
-  border-top: 1px solid rgba(0,0,0,.1);
 }
 
 @media (min-width: 992px) {

@@ -58,6 +58,15 @@
   padding: 2px;
   display: block; }
 
+.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+  border: 2px dashed #ED3636 !important; }
+
+.invalid-feedback {
+  color: #ED3636 !important; }
+
+span.initialism.form-error-icon.badge.badge-danger {
+  display: none !important; }
+
 p {
   margin-bottom: 0; }
 
@@ -186,75 +195,63 @@ header img {
   justify-content: space-between; }
 
 @media (min-width: 1920px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 50%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1680px) and (max-width: 1920px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 50%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1440px) and (max-width: 1680px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 50%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 1024px) and (max-width: 1440px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 55%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 750px) and (max-width: 1024px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 70%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 530px) and (max-width: 750px) {
-  section, header {
+  section, header, body > div {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 100%; }
 
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 70%; }
 
@@ -263,7 +260,6 @@ header img {
 @media (min-width: 480px) and (max-width: 530px) {
   section, header, #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 100%; }
 
@@ -272,13 +268,11 @@ header img {
 @media (max-width: 480px) {
   #carouselExampleIndicators {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 90%; }
 
   section, header {
     margin: auto;
-    text-align: justify;
     font-size: large;
     max-width: 100%; }
 
@@ -294,63 +288,44 @@ header img {
     width: 20px;
     height: 20px;
     right: -12px; } }
-#map {
-  width: 350px;
-  height: 350px;
-  border: 4px dashed #EA0296;
-  border-radius: 50%;
-  background-color: #FF99CC; }
-
+/*---------------------------------- General ----------------------------------*/
 header {
   padding: 40px 0 50px 0;
   background-color: rgba(137, 183, 216, 0.1); }
 
+div canvas {
+  width: 100%;
+  height: 30px; }
+
+/*---------------------------------- Presentation ----------------------------------*/
 #presentation {
+  text-align: justify;
   padding: 40px;
   background-color: rgba(255, 212, 85, 0.1); }
 
+/*---------------------------------- Location ----------------------------------*/
 #location {
   padding: 40px;
   background-color: rgba(255, 153, 204, 0.1); }
 
-#contact {
-  padding: 40px;
-  background-color: rgba(189, 202, 202, 0.1); }
-
-#participate {
-  padding: 40px;
-  background-color: rgba(175, 225, 119, 0.1); }
-
-#contact_message {
-  border: 4px dashed #4B5F5F; }
-
-canvas {
-  width: 100%;
-  height: 30px !important; }
+#location p {
+  margin: 0 0 0 5px; }
 
 #location img {
   width: 40px;
   height: auto;
   margin-right: 10px; }
 
-#contact img {
-  width: 40px;
-  height: auto;
-  margin-right: 10px; }
+#location > div:first-child {
+  display: flex;
+  justify-content: space-between; }
 
-#participate img {
-  width: 40px;
-  height: auto;
-  margin-right: 10px; }
-
-#participate > div:nth-child(2) img {
-  width: 25px;
-  height: auto;
-  margin-right: 10px;
-  margin-bottom: 0.5rem; }
-
-#location p {
-  margin: 0 0 0 5px; }
+#map {
+  width: 350px;
+  height: 350px;
+  border: 4px dashed #EA0296;
+  border-radius: 50%;
+  background-color: #FF99CC; }
 
 .fa {
   font-size: 24px; }
@@ -367,9 +342,15 @@ canvas {
   font-size: 18px;
   color: #EA0296; }
 
-#location > div:first-child {
-  display: flex;
-  justify-content: space-between; }
+/*---------------------------------- Participate ----------------------------------*/
+#participate {
+  padding: 40px;
+  background-color: rgba(175, 225, 119, 0.1); }
+
+#participate img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px; }
 
 #participate > div:nth-child(2) {
   height: 300px;
@@ -378,22 +359,49 @@ canvas {
   padding-right: 50px;
   padding-left: 20px; }
 
+#participate > div:nth-child(2) img {
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 0.5rem; }
+
 /* width */
-::-webkit-scrollbar {
+#participate ::-webkit-scrollbar {
   width: 15px; }
 
 /* Track */
-::-webkit-scrollbar-track {
+#participate ::-webkit-scrollbar-track {
   background: -webkit-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
   background: -moz-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
   background: -o-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
   background-size: 7%; }
 
+#participate p {
+  padding-left: 60px; }
+
 /* Handle */
-::-webkit-scrollbar-thumb:vertical {
+#participate ::-webkit-scrollbar-thumb:vertical {
   background: transparent url(../../img/zipper-3.png) no-repeat;
   background-size: 100%; }
 
+/*---------------------------------- Contact ----------------------------------*/
+#contact {
+  padding: 40px;
+  background-color: rgba(189, 202, 202, 0.1); }
+
+#contact img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px; }
+
+#contact_message {
+  border: 4px dashed #4B5F5F; }
+
+#contact ul {
+  display: flex;
+  justify-content: start; }
+
+/*---------------------------------- Responsive ----------------------------------*/
 @media (max-width: 1024px) {
   #location > div:first-child {
     flex-direction: column; }
@@ -417,10 +425,10 @@ canvas {
   #participate > div:nth-child(2) .d-flex.align-items-center img {
     display: none; }
 
-  ul {
-    padding-left: 0; }
+  #participate p {
+    padding-left: 0px; }
 
   section, header {
-    max-width: 100% !important; } }
+    max-width: 100%; } }
 
 /*# sourceMappingURL=index.css.map */

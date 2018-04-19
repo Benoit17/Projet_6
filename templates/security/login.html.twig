@@ -1,0 +1,36 @@
+<div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="connexionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body d-flex">
+                <div style="width: 25%; text-align: center">
+                    <img class="img-fluid" src="{{ asset('img/patch-1.png') }}" alt="patch_jaune">
+                </div>
+                <div style="width: 50%;">
+                    <h3 style="text-align: center;" class="modal-title" id="connexionModalLabel">Connexion</h3>
+                    <div class="align-items-center">
+                        <div class="flash-msg-cnx"></div>
+                        <form action="{{ path('login') }}" method="post" class="form-gr" id="connexion-form">
+                            <div class="form-group">
+                                <label for="username">Nom d'utilisateur :</label>
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Saississez votre nom d'utilisateur" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe :</label>
+                                <input type="password" id="password" name="_password" class="form-control" placeholder="Saississez votre nom d'utilisateur" />
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="submit" class="btn btn-default">Se connecter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div style="width: 25%;" class="d-flex flex-column justify-content-between align-items-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><img src="{{ asset('img/button-5.png') }}" alt="boutton_rouge"> </span>
+                    </button>
+                    <img src="{{ asset('img/patch-2.png') }}" alt="patch_bleu">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

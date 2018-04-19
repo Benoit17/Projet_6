@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // CHANGER ROLE
+    // CONNEXION
     login();
 
     // fonction permettant de se connecter
@@ -19,7 +19,7 @@ $(document).ready(function () {
                     $('body').prepend(data);
                     // affiche la modale
                     $('#connexionModal').modal('show');
-                   // en cas de fermeture  de la modale sans modification
+                    // en cas de fermeture  de la modale sans modification
                     $('#connexionModal').on('hidden.bs.modal', function (e) {
                         // supprime la modale
                         $('#connexionModal').replaceWith('');
@@ -35,23 +35,14 @@ $(document).ready(function () {
                             data: $form.serialize(),
                             success: function () {
                                 //En cas de succes on recharge la page
-                                location.reload(true);
+                                location.href="http://localhost/projet_6/public/index.php/admin";
                             },
                             error: function (jqxhr) {
                                 //En cas d'erreur on affiche un message d'erreur
-                                if(jqxhr.status === 500) {
-                                    $('.flash-msg-cnx').replaceWith('<div class="alert alert-danger justify-content-center flash-msg-cnx">Compte désactivé, contactez l\'administrateur.</div>');
-                                }else {
-                                    $('.flash-msg-cnx').replaceWith(jqxhr.responseText);
-                                }
+                                $('.flash-msg-cnx').replaceWith(jqxhr.responseText);
                             }
                         })
                     })
-
-                },
-                error: function() {
-                    // Si la modale ne s'affiche pas un message d'erreur apparait
-                    addFlashMsg('danger', "Une erreur est survenue")
                 }
             });
         });

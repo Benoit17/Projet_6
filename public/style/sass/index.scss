@@ -1,45 +1,15 @@
 @import '_common.scss';
 
-#map {
-  width: 350px;
-  height: 350px;
-  border: 4px dashed #EA0296;
-  border-radius: 50%;
-  background-color: #FF99CC;
-}
+/*---------------------------------- General ----------------------------------*/
 
 header{
   padding: 40px 0 50px 0;
   background-color: rgba(137, 183, 216, 0.1);
 }
 
-#presentation{
-  padding: 40px;
-  background-color: rgba(255, 212, 85, 0.1);
-}
-
-#location{
-  padding: 40px;
-  background-color: rgba(255, 153, 204, 0.1);
-}
-
-#contact{
-  padding: 40px;
-  background-color: rgba(189, 202, 202, 0.1);
-}
-
-#participate{
-  padding: 40px;
-  background-color: rgba(175, 225, 119, 0.1);
-}
-
-#contact_message{
-  border: 4px dashed #4B5F5F;
-}
-
-canvas{
+div canvas{
   width: 100%;
-  height: 30px !important;
+  height: 30px;
 }
 
 @mixin Pic{
@@ -48,27 +18,40 @@ canvas{
   margin-right: 10px;
 }
 
-#location img{
- @include Pic;
+/*---------------------------------- Presentation ----------------------------------*/
+
+#presentation{
+  text-align: justify;
+  padding: 40px;
+  background-color: rgba(255, 212, 85, 0.1);
 }
 
-#contact img{
-  @include Pic;
-}
+/*---------------------------------- Location ----------------------------------*/
 
-#participate img{
-  @include Pic;
-}
-
-#participate > div:nth-child(2) img{
-  width: 25px;
-  height: auto;
-  margin-right: 10px;
-  margin-bottom: 0.5rem;
+#location{
+  padding: 40px;
+  background-color: rgba(255, 153, 204, 0.1);
 }
 
 #location p{
   margin: 0 0 0 5px;
+}
+
+#location img{
+  @include Pic;
+}
+
+#location > div:first-child{
+  display: flex;
+  justify-content: space-between;
+}
+
+#map {
+  width: 350px;
+  height: 350px;
+  border: 4px dashed #EA0296;
+  border-radius: 50%;
+  background-color: #FF99CC;
 }
 
 .fa{
@@ -89,9 +72,15 @@ canvas{
   color: #EA0296;
 }
 
-#location > div:first-child{
-  display: flex;
-  justify-content: space-between;
+/*---------------------------------- Participate ----------------------------------*/
+
+#participate{
+  padding: 40px;
+  background-color: rgba(175, 225, 119, 0.1);
+}
+
+#participate img{
+  @include Pic;
 }
 
 #participate > div:nth-child(2){
@@ -102,13 +91,20 @@ canvas{
   padding-left: 20px
 }
 
+#participate > div:nth-child(2) img{
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 0.5rem;
+}
+
 /* width */
-::-webkit-scrollbar {
+#participate ::-webkit-scrollbar {
   width: 15px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+#participate ::-webkit-scrollbar-track {
   background: -webkit-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
   background: -moz-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
   background: -o-linear-gradient(#CDCDCD 50%, #E6E6E6 50%);
@@ -116,17 +112,38 @@ canvas{
 
 }
 
+#participate p{
+  padding-left: 60px;
+}
+
 /* Handle */
-::-webkit-scrollbar-thumb:vertical
+#participate ::-webkit-scrollbar-thumb:vertical
 {
   background: transparent url(../../img/zipper-3.png) no-repeat;
   background-size:100%;
 }
 
-//.test{
-//  display: flex;
-//  flex-wrap: wrap;
-//}
+/*---------------------------------- Contact ----------------------------------*/
+
+#contact{
+  padding: 40px;
+  background-color: rgba(189, 202, 202, 0.1);
+}
+
+#contact img{
+  @include Pic;
+}
+
+#contact_message{
+  border: 4px dashed #4B5F5F;
+}
+
+#contact ul {
+  display: flex;
+  justify-content: start;
+}
+
+/*---------------------------------- Responsive ----------------------------------*/
 
 @media (max-width: 1024px) {
   #location > div:first-child{
@@ -160,11 +177,12 @@ canvas{
     display: none;
   }
 
-  ul{
-    padding-left: 0;
+  #participate p{
+    padding-left: 0px;
   }
 
+
   section, header{
-    max-width: 100% !important;
+    max-width: 100%;
   }
 }

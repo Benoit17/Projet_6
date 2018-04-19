@@ -1,0 +1,29 @@
+<section>
+    <div id="contact">
+        <div class="d-flex align-items-center" style="padding-bottom: 20px;">
+            <img class="img-fluid" src="{{ asset('img/button-3.png') }}" alt="boutton_jaune">
+            <h2>Nous contacter</h2>
+        </div>
+        <div>
+            {{ form_start(contactForm) }}
+
+            {{ form_errors(contactForm.nom) }}
+            {{ form_widget(contactForm.nom) }}<br/>
+
+            {{ form_errors(contactForm.prenom) }}
+            {{ form_widget(contactForm.prenom) }}<br/>
+
+            {{ form_errors(contactForm.email) }}
+            {{ form_widget(contactForm.email) }}<br/>
+
+            {{ form_errors(contactForm.message) }}
+            {{ form_widget(contactForm.message) }}<br/>
+
+            {{ form_widget(contactForm.save, { 'label': 'Envoyer' }) }}
+
+            {{ form_rest(contactForm) }}
+
+            {{ form_end(contactForm) }}
+        </div>
+    </div>
+</section>

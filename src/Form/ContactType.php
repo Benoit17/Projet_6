@@ -21,11 +21,19 @@ class ContactType extends AbstractType
             ->add('nom', TextType::class, array('attr' => array('placeholder' => 'Nom'),
                 'constraints' => array(
                     new NotBlank(array("message" => "Veuillez saisir un nom valide.")),
+                    new Length(array(
+                        'min' => '2',
+                        'minMessage' => 'Votre nom doit comporter au minimun {{ limit }} caractères.'
+                    ))
                 )
             ))
             ->add('prenom', TextType::class, array('attr' => array('placeholder' => 'Prénom'),
                 'constraints' => array(
                     new NotBlank(array("message" => "Veuillez saisir un prénom valide.")),
+                    new Length(array(
+                        'min' => '2',
+                        'minMessage' => 'Votre prénom doit comporter au minimun {{ limit }} caractères.'
+                    ))
                 )
             ))
             ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Email'),

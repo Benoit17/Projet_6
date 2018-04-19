@@ -60,6 +60,7 @@ class DefaultController extends Controller
     {
         // récupération des erreurs si il y en a
         $error = $authUtils->getLastAuthenticationError();
+
         if($error !== null){
             $response = '<div class="alert alert-danger justify-content-center flash-msg-cnx">Nom d\'utilisateur ou mot de passe invalide</div>';
             return new Response($response, 400);
@@ -67,7 +68,8 @@ class DefaultController extends Controller
 
         // dernier nom d'utilisateur saisie par l'utilisateur
         $lastUsername = $authUtils->getLastUsername();
-        return $this->render('default/login.html.twig', array(
+
+        return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
