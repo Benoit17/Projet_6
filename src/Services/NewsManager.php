@@ -62,12 +62,12 @@ class NewsManager
         // Ajout de la date de publication
         $post->setPublishedDate(new \DateTime());
         // Récupération de l'image sélectionnée si disponible
-        $newFile = $post->getImagePath();
+        $newFile = $post->getPicturePath();
         // Récupération du chemin du dossier de stockage
         $path = $this->postsDirectory;
         if ($newFile === null) {
             // Ajout de l'image par défault
-            $post->setImagePath('img/default/post_default.jpg');
+            $post->setPicturePath('img/default/post_default.jpg');
         } else {
             // Renommage du fichier
             $fileName = md5(uniqid()).'.'.$newFile->guessExtension();
@@ -76,7 +76,7 @@ class NewsManager
             // Ecriture du nouveau chemin
             $filePath = "uploads/posts_files/".$fileName;
             // Association de l'image à l'article
-            $post->setImagePath($filePath);
+            $post->setPicturePath($filePath);
         }
         // Sauvegarde du nouvel article
         $this->em->persist($post);
@@ -87,9 +87,9 @@ class NewsManager
         // Récupération de la catégorie par son id
         $post = $this->getPost($id);
         // Vérification pour ne pas supprimer l'image pas défaut
-        if ($post->getImagePath() != 'img/default/post_default.jpg') {
+        if ($post->getPicturePath() != 'img/default/post_default.jpg') {
             // Suppression de l'ancienne photo
-            $this->fileSystem->remove(array($post->getImagePath()));
+            $this->fileSystem->remove(array($post->getPicturePath()));
         }
         // Supression de l'article
         $this->em->remove($post);
@@ -110,7 +110,7 @@ class NewsManager
         return $paginator->paginate(
             $postsList/*$query*/, /* query NOT result */
             $this->request->getCurrentRequest()->query->getInt('page', 1)/*page number*/,
-            3/*limit per page*/
+            5/*limit per page*/
         );
     }
     

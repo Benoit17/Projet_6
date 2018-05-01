@@ -1,0 +1,56 @@
+<section id="posts_list">
+    {% if posts %}
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Actions</th>  <!-- Actions column -->
+                </tr>
+                </thead>
+                {% for post in posts %}
+                    <tr id="content">
+                        <td><a href="{{ path('view-post', {'id' : post.id }) }}">{{ post.title }}</a></td>
+                        <td>{{ post.content|slice(0, 30)|raw }}{% if post.content|length > 30 %}...{% endif %}</td>
+                        <td class="d-flex justify-content-around">
+                            <div class="d-flex flex-column align-items-center">
+                                <a href="{{ path('edit-post', { 'id': post.id }) }}" class="close" title="Editer">
+                                    <span aria-hidden="true"><img src="{{ asset('img/button-3.png') }}" alt="boutton_edit"> </span>
+                                </a>
+                                <p style="color: #FFD455;">Editer</p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                                <button type="button" class="close" title="Supprimer" data-toggle="modal" data-target="#postDialog{{ post.id }}">
+                                    <span aria-hidden="true"><img src="{{ asset('img/button-5.png') }}" alt="boutton_supprim"> </span>
+                                </button>
+                                <p style="color: #FF5556;">Supprimer</p>
+                            </div>
+
+                            <div class="modal fade" id="postDialog{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">Confirmation demandee</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="{{ asset('img/button-5.png') }}" alt="boutton_rouge"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Voulez-vous vraiment supprimer cet article ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                            <a href="{{ path('delete-post', { 'id': post.id }) }}" class="btn btn-secondary">Confirmer</a>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div class="text-center">{{ knp_pagination_render(posts) }}</div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning">Pas encore d'articles.</div>
+    {% endif %}
+</section>

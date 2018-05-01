@@ -55,14 +55,14 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="imagePath", type="string", length=255, nullable=true)
+     * @ORM\Column(name="picturePath", type="string", length=255, nullable=true)
      * @Assert\Image(
      *     maxSize="4M",
      *     allowPortrait = true,
      *     maxSizeMessage="Votre image doit ne peut pas faire plus de 4Mo."
      * )
      */
-    private $imagePath;
+    private $picturePath;
 
     /**
      * @var \DateTime
@@ -152,26 +152,26 @@ class Post
     }
 
     /**
-     * Set imagePath
+     * Set picturePath
      *
-     * @param string $imagePath
+     * @param string $picturePath
      *
      * @return Post
      */
-    public function setImagePath($imagePath)
+    public function setPicturePath($picturePath)
     {
-        $this->imagePath = $imagePath;
+        $this->picturePath = $picturePath;
         return $this;
     }
 
     /**
-     * Get imagePath
+     * Get picturePath
      *
      * @return string
      */
-    public function getImagePath()
+    public function getPicturePath()
     {
-        return $this->imagePath;
+        return $this->picturePath;
     }
 
     /**

@@ -62,7 +62,7 @@ class DefaultController extends Controller
         $error = $authUtils->getLastAuthenticationError();
 
         if($error !== null){
-            $response = '<div class="alert alert-danger justify-content-center flash-msg-cnx">Nom d\'utilisateur ou mot de passe invalide</div>';
+            $response = '<div class="alert alert-danger justify-content-center flash-msg-cnx">Nom d\'utilisateur ou mot de passe invalide.</div>';
             return new Response($response, 400);
         }
 

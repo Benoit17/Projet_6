@@ -1,7 +1,17 @@
 $(document).ready(function() {
     if(document.URL.indexOf("/edit/") >= 0) {
-        $('<a href="javascript:history.back()" class="btn btn-danger">Annuler</a>').insertBefore($('button#add_post_save'))
+        $('<a href="javascript:history.back()" class="btn btn-secondary">Annuler</a>').insertBefore($('button#add_post_save'))
     }
+});
+
+$('ul.pagination li:first-child span').text('« Précédent');
+$('ul.pagination li:first-child a').text('« Précédent');
+
+$('ul.pagination li:last-child span').text('Suivant »');
+$('ul.pagination li:last-child a').text('Suivant »');
+
+$( window ).scroll(function() {
+    $( "div.alert-success" ).fadeOut( "slow" );
 });
 
 // $( "#add_post_save" ).click(function() {

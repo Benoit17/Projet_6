@@ -18,8 +18,8 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imagePath', FileType::class, array(
-                'label' => 'Sélectionner une image',
+            ->add('picturePath', FileType::class, array(
+                'label' => 'Selectionner une image',
                 'invalid_message' => 'Veuillez sélectionner un fichier valide.',
                 'data_class' => null,
                 'required' => false

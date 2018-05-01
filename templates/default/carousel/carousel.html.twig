@@ -9,7 +9,7 @@
             {% for post in threeLastPosts  %}
                 <div class="carousel-item">
                     <a href="{{ path('view-post', {'id' : post.id }) }}">
-                        <img class="d-block" src="{{ asset(post.imagePath) }}" alt="test">
+                        <img class="d-block" src="{{ asset(post.picturePath) }}" alt="picture">
                     </a>
                     <div class="carousel-caption d-none d-md-block">
                         <p>{{ post.title|slice(0, 20)|raw }}</p>

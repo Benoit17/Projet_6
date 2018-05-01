@@ -63,5 +63,15 @@ a .fa .fa-facebook-f {
 
   li img {
     display: block; } }
+/*---------------------------------- Canvas ----------------------------------*/
+div canvas {
+  width: 100%;
+  height: 30px; }
+
+@font-face {
+  font-family: 'Christmas Jumper';
+  src: url("Christmas Jumper.ttf") format("truetype"); }
+h1, h2, h3, h4 {
+  font-family: "Christmas Jumper", Arial, serif; }
 
 /*# sourceMappingURL=layout.css.map */

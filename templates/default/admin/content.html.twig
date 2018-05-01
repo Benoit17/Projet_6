@@ -1,0 +1,13 @@
+<section id="post_content">
+    <div>
+        {{ form_label(createPostForm.content) }}<br/>
+        {{ form_widget(createPostForm.content) }}<br/>
+    </div>
+
+    <div style="padding-bottom: 25px">
+    {{ form_widget(createPostForm.save, { 'label': 'Poster' }) }}<br/>
+    </div>
+
+    {{ form_end(createPostForm) }}
+</section>
+

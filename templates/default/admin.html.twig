@@ -1,84 +1,30 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ asset('style/css/admin.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <h2 class="text-center">Administration</h2>
-    {% for flashMessage in app.session.flashbag.get('success') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-    <div>
-        <div>
-            {{ form_start(createPostForm) }}
-            {{ form_errors(createPostForm) }}
 
-            <div>
-                {{ form_label(createPostForm.imagePath) }}<br/>
-                {{ form_widget(createPostForm.imagePath) }}<br/>
-            </div>
+    {% include 'default/admin/picture.html.twig' %}
 
-            <div>
-                {{ form_label(createPostForm.title) }}<br/>
-                {{ form_widget(createPostForm.title) }}<br/>
-            </div>
+    <span class="border-yellow"></span>
 
-            <div>
-                {{ form_label(createPostForm.content) }}<br/>
-                {{ form_widget(createPostForm.content) }}<br/>
-            </div>
+    {% include 'default/admin/title.html.twig' %}
 
-            {{ form_widget(createPostForm.save) }}<br/>
-            {{ form_end(createPostForm) }}
-        </div>
-    </div>
-    {% if posts %}
-        <div class="table-responsive">
-            <table class="table table-hover table-condensed">
-                <thead>
-                <tr>
-                    <th>Article n°</th>
-                    <th>Contenu</th>
-                    <th>Actions</th>  <!-- Actions column -->
-                </tr>
-                </thead>
-                {% for post in posts %}
-                    <tr id="content">
-                        <td><a href="{{ path('view-post', {'id' : post.id }) }}">{{ post.title }}</a></td>
-                        <td>{{ post.content|slice(0, 30)|raw }}{% if post.content|length > 30 %}...{% endif %}</td>
-                        <td>
-                            <a href="{{ path('edit-post', { 'id': post.id }) }}" class="btn btn-info btn-xs" title="Editer"><span class="glyphicon glyphicon-edit"></span></a>
-                            <button type="button" class="btn btn-danger btn-xs" title="Supprimer" data-toggle="modal" data-target="#billetDialog{{ post.id }}"><span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                            <div class="modal fade" id="billetDialog{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Confirmation demandée</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            Voulez-vous vraiment supprimer cet article ?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                            <a href="{{ path('delete-post', { 'id': post.id }) }}" class="btn btn-danger">Confirmer</a>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-            <div class="text-center">{{ knp_pagination_render(posts) }}</div>
-        </div>
-    {% else %}
-        <div class="alert alert-warning">Pas encore d'articles.</div>
-    {% endif %}
+    <span class="border-pink"></span>
+
+    {% include 'default/admin/content.html.twig' %}
+
+    <span class="border-green"></span>
+
+    {% include 'default/admin/postsList.html.twig' %}
+
 {% endblock %}
 
 {% block javascripts %}
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=dc1euft7h2vuqdoljsbeujwc4cbs7uwljex6myqc16fgzugb"></script>
     <script src="{{ asset('js/tinyMCE.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/scarf.js') }}"></script>
 {% endblock %}
