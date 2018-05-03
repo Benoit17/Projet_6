@@ -195,7 +195,7 @@ header img {
   justify-content: space-between; }
 
 @media (min-width: 1920px) {
-  section, header, form > span, body > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('style/css/error.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <section class="panel-body text-center">
+        <div>
+            <p>Cette page n'existe plus ou bien n'a pas été créée.</br>
+                Nous vous prions de nous excuser pour la gêne occassionnée.</br>
+                Nous vous invitons à revenir sur  <a href="{{ path('homepage') }}">la page d'accueil</a>.
+            </p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/error.js') }}"></script>
+{% endblock %}

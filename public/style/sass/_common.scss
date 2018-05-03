@@ -173,7 +173,7 @@ header img{
 }
 
 @media (min-width: 1920px) {
-  section, header, form > span, body > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green{
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green{
     @include SH(50%);
   }
   #carouselExampleIndicators{

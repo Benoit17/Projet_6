@@ -1,0 +1,56 @@
+header {
+  display: none; }
+
+section.panel-body.text-center {
+  display: flex;
+  height: 100vh;
+  background-color: #FFF5FA; }
+  section.panel-body.text-center div:first-child {
+    display: flex;
+    padding: 50px;
+    margin: auto;
+    background-color: #fff;
+    border: 2px dashed #FF99CC;
+    border-radius: 50%;
+    width: 50%; }
+  section.panel-body.text-center p {
+    margin: auto;
+    font-family: "Montserrat", Arial, serif;
+    font-size: 22px; }
+  section.panel-body.text-center a {
+    color: #FF99CC;
+    font-family: "Christmas Jumper", Arial, serif; }
+  section.panel-body.text-center a:hover {
+    color: #FF99CC;
+    text-decoration: none; }
+
+/*---------------------------------- Responsive ----------------------------------*/
+@media (min-width: 1920px) {
+  section.panel-body.text-center div:first-child {
+    width: 20%; }
+  section.panel-body.text-center p {
+    font-size: 20px; } }
+@media (min-width: 1680px) and (max-width: 1920px) {
+  section.panel-body.text-center div:first-child {
+    width: 30%; }
+  section.panel-body.text-center p {
+    font-size: 20px; } }
+@media (min-width: 992px) and (max-width: 1680px) {
+  section.panel-body.text-center div:first-child {
+    width: 40%; }
+  section.panel-body.text-center p {
+    font-size: 20px; } }
+@media (min-width: 480px) and (max-width: 992px) {
+  section.panel-body.text-center div:first-child {
+    width: 70%; }
+  section.panel-body.text-center p {
+    font-size: 20px; } }
+@media (max-width: 480px) {
+  section.panel-body.text-center {
+    height: 600px; }
+    section.panel-body.text-center div:first-child {
+      width: 90%; }
+    section.panel-body.text-center p {
+      font-size: 13px; } }
+
+/*# sourceMappingURL=error.css.map */
