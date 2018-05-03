@@ -4,7 +4,7 @@
 
 header{
   padding: 40px 0 50px 0;
-  background-color: rgba(137, 183, 216, 0.1);
+  background-color: #F3F8FB;
 }
 
 @mixin Pic{
@@ -23,14 +23,14 @@ h2{
 #presentation{
   text-align: justify;
   padding: 40px;
-  background-color: rgba(255, 212, 85, 0.1);
+  background-color: #FFFBEE;
 }
 
 /*---------------------------------- Location ----------------------------------*/
 
 #location{
   padding: 40px;
-  background-color: rgba(255, 153, 204, 0.1);
+  background-color: #FFF5FA;
 }
 
 #location p{
@@ -76,7 +76,7 @@ h2{
 
 #participate{
   padding: 40px;
-  background-color: rgba(175, 225, 119, 0.1);
+  background-color: #F7FCF1;
 }
 
 #participate img{
@@ -125,22 +125,33 @@ h2{
 
 /*---------------------------------- Contact ----------------------------------*/
 
-#contact{
-  padding: 40px;
-  background-color: rgba(189, 202, 202, 0.1);
-}
-
-#contact img{
-  @include Pic;
-}
-
 #contact_message{
   border: 4px dashed #4B5F5F;
 }
 
-#contact ul {
-  display: flex;
-  justify-content: start;
+#contact{
+  padding: 40px;
+  background-color: #F8FAFA;
+
+  img{
+    @include Pic;
+  }
+
+  ul {
+    display: flex;
+    justify-content: start;
+  }
+
+  .alert-success {
+    border-color: #619922;
+  }
+
+  .alert {
+    padding: 15px 15px;
+    margin: 10px 0 10px 0;
+    border: 2px dashed #619922;
+    border-radius: 10px;
+  }
 }
 
 /*---------------------------------- Responsive ----------------------------------*/

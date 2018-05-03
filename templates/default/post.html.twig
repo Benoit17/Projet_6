@@ -1,23 +1,36 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ asset('style/css/post.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block header %}
     <header>
-        <div class="jumbotron">
-            <div class="container-fluid">
-                <img src="{{ asset(post.picturePath) }}">
-            </div>
+        <div class="container-fluid">
+            <img src="{{ asset(post.picturePath) }}" alt="image_article">
         </div>
-
     </header>
+
+    <div style="background-color: rgba(255, 212, 85, 0.1);"><canvas id="scarf1"></canvas></div>
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <section>
+    <section id="content">
+        <div>
             <div>
-                <p><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ post.publishedDate|date("d/m/Y à H:i", "Europe/Paris") }}</p>
+                <h2 style="text-align: center; margin-bottom: 20px">{{ post.title }}</h2>
+                <p style="font-family: 'Christmas Jumper', Arial, serif; font-size: 13px; margin-bottom: 20px;">
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ post.publishedDate|date("d/m/Y à H:i", "Europe/Paris") }}
+                </p>
             </div>
-            {{ post.content|raw }}
-        </section>
-    </div>
+            <div style="text-align: justify">
+                {{ post.content|raw }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/post.js') }}"></script>
+    <script src="{{ asset('js/scarf.js') }}"></script>
 {% endblock %}

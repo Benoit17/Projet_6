@@ -9,3 +9,7 @@ $(document).ready(function () {
         self.location.href='#contact'
     }
 });
+
+$( window ).scroll(function() {
+    $( "div.alert-success" ).fadeOut( "slow" );
+});

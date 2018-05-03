@@ -4,17 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noindex, nofollow">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Mail de confirmation</title>
+        <link href="{{ absolute_url(asset('style/css/layout.css')) }}" rel="stylesheet">
     </head>
 
     <body>
         <section id="page-sample">
             <div class="container content-section text-left">
-
-                <p>Ce mail a été envoyé depuis le formulaire de contact du site riv'sourires</p>
+                <h3>Ce mail a été envoyé depuis le formulaire de contact du site riv'sourires</h3>
                 <hr/>
                 <p>Email de l'utilsateur : {{ data['email'] }} </p>
                 <p>Nom de l'utilsateur : {{ data['nom'] }} </p>

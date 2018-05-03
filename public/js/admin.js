@@ -14,12 +14,6 @@ $( window ).scroll(function() {
     $( "div.alert-success" ).fadeOut( "slow" );
 });
 
-// $( "#add_post_save" ).click(function() {
-//     $( ".alert" ).fadeOut( "slow", function() {
-//         // Animation complete.
-//     });
-// });
-
 // $(document).ready(function() {
 //     // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
 //     var $container = $('div#app_post_pictures');

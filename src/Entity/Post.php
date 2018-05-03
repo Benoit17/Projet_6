@@ -1,12 +1,16 @@
 <?php
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
  * Post
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
+ * @UniqueEntity("title", message="Ce titre existe deja.")
  */
 class Post
 {

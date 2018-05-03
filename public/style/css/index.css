@@ -195,7 +195,7 @@ header img {
   justify-content: space-between; }
 
 @media (min-width: 1920px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -205,7 +205,7 @@ header img {
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1680px) and (max-width: 1920px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -215,7 +215,7 @@ header img {
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1440px) and (max-width: 1680px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -225,7 +225,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 1024px) and (max-width: 1440px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 55%; }
@@ -235,7 +235,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 750px) and (max-width: 1024px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 70%; }
@@ -245,7 +245,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 530px) and (max-width: 750px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 100%; }
@@ -291,7 +291,7 @@ header img {
 /*---------------------------------- General ----------------------------------*/
 header {
   padding: 40px 0 50px 0;
-  background-color: rgba(137, 183, 216, 0.1); }
+  background-color: #F3F8FB; }
 
 h2 {
   margin-bottom: 0 !important;
@@ -301,12 +301,12 @@ h2 {
 #presentation {
   text-align: justify;
   padding: 40px;
-  background-color: rgba(255, 212, 85, 0.1); }
+  background-color: #FFFBEE; }
 
 /*---------------------------------- Location ----------------------------------*/
 #location {
   padding: 40px;
-  background-color: rgba(255, 153, 204, 0.1); }
+  background-color: #FFF5FA; }
 
 #location p {
   margin: 0 0 0 5px; }
@@ -345,7 +345,7 @@ h2 {
 /*---------------------------------- Participate ----------------------------------*/
 #participate {
   padding: 40px;
-  background-color: rgba(175, 225, 119, 0.1); }
+  background-color: #F7FCF1; }
 
 #participate img {
   width: 40px;
@@ -385,21 +385,26 @@ h2 {
   background-size: 100%; }
 
 /*---------------------------------- Contact ----------------------------------*/
-#contact {
-  padding: 40px;
-  background-color: rgba(189, 202, 202, 0.1); }
-
-#contact img {
-  width: 40px;
-  height: auto;
-  margin-right: 10px; }
-
 #contact_message {
   border: 4px dashed #4B5F5F; }
 
-#contact ul {
-  display: flex;
-  justify-content: start; }
+#contact {
+  padding: 40px;
+  background-color: #F8FAFA; }
+  #contact img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px; }
+  #contact ul {
+    display: flex;
+    justify-content: start; }
+  #contact .alert-success {
+    border-color: #619922; }
+  #contact .alert {
+    padding: 15px 15px;
+    margin: 10px 0 10px 0;
+    border: 2px dashed #619922;
+    border-radius: 10px; }
 
 /*---------------------------------- Responsive ----------------------------------*/
 @media (max-width: 1024px) {

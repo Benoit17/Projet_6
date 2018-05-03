@@ -20,8 +20,8 @@ class MailManager
     }
 
     public function sendMail($data) {
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('send@example.com')
+        $message = (new \Swift_Message('Contact'))
+            ->setFrom($data['email'])
             ->setTo('dumaschaumette@gmail.com')
             ->setBody($this->env->render('default/mail.html.twig', array(
                 'data' => $data

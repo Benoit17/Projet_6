@@ -195,7 +195,7 @@ header img {
   justify-content: space-between; }
 
 @media (min-width: 1920px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -205,7 +205,7 @@ header img {
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1680px) and (max-width: 1920px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -215,7 +215,7 @@ header img {
     font-size: large;
     max-width: 50%; } }
 @media (min-width: 1440px) and (max-width: 1680px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 50%; }
@@ -225,7 +225,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 1024px) and (max-width: 1440px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 55%; }
@@ -235,7 +235,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 750px) and (max-width: 1024px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 70%; }
@@ -245,7 +245,7 @@ header img {
     font-size: large;
     max-width: 70%; } }
 @media (min-width: 530px) and (max-width: 750px) {
-  section, header, form > span, body > span, body > div {
+  section, header, form > span, body > div, .border-pink, .border-yellow, .border-blue, .border-green {
     margin: auto;
     font-size: large;
     max-width: 100%; }
@@ -298,7 +298,7 @@ label {
 #picture_choice {
   text-align: justify;
   padding: 20px;
-  background-color: rgba(137, 183, 216, 0.1); }
+  background-color: #F3F8FB; }
 
 input#add_post_picturePath {
   display: none; }
@@ -328,21 +328,20 @@ input#add_post_picturePath {
 
 /*---------------------------------- title ----------------------------------*/
 #title {
-  background-color: rgba(255, 212, 85, 0.1);
+  background-color: #FFFBEE;
   text-align: center; }
-
-#title label {
-  color: #FFD455;
-  margin: 20px 0 20px 0; }
-
-#title input {
-  width: 80%;
-  margin: 50px auto;
-  border: 2px dashed #FFD455;
-  border-radius: 15px; }
-
-.form-control {
-  box-shadow: 0 0 transparent; }
+  #title label {
+    color: #FFD455;
+    margin: 20px 0 50px 0; }
+  #title input {
+    width: 80%;
+    margin: 0 auto 50px auto;
+    border: 2px dashed #FFD455;
+    border-radius: 15px; }
+  #title .form-control {
+    box-shadow: 0 0 transparent; }
+  #title .invalid-feedback {
+    margin-top: 50px; }
 
 /*---------------------------------- post_content ----------------------------------*/
 .alert-success {
@@ -355,7 +354,7 @@ input#add_post_picturePath {
   border-radius: 10px; }
 
 #post_content {
-  background-color: rgba(255, 153, 204, 0.1);
+  background-color: #FFF5FA;
   text-align: center; }
 
 #post_content label {
@@ -374,7 +373,7 @@ input#add_post_picturePath {
 /*---------------------------------- posts_List ----------------------------------*/
 #posts_list {
   padding: 20px;
-  background-color: rgba(175, 225, 119, 0.1); }
+  background-color: #F7FCF1; }
 
 th {
   font-family: "Christmas Jumper", Arial, serif;

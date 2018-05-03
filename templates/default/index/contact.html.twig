@@ -4,6 +4,11 @@
             <img class="img-fluid" src="{{ asset('img/button-3.png') }}" alt="boutton_jaune">
             <h2>Nous contacter</h2>
         </div>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div>
             {{ form_start(contactForm) }}
 

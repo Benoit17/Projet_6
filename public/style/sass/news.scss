@@ -1,1 +1,124 @@
 @import '_common.scss';
+
+header{
+  padding: 40px 0 50px 0;
+  background-color: #F3F8FB;
+}
+
+section{
+  height: 400px;
+}
+
+/*---------------------------------- post (voir dans js/news) ----------------------------------*/
+
+#post img{
+  border: 2px dashed;
+  border-radius: 50%;
+  margin-bottom: 150px;
+  margin-right: 50px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+section > div:last-child > div:first-child{
+  height: 300px;
+  width: 300px;
+  padding: 5px;
+  margin-top: 50px;
+  margin-left: 50px;
+  background-color: #fff;
+  font-family: "Christmas Jumper", Arial, serif;
+  font-size: 13px;
+  border: 2px dashed;
+  border-radius: 50%;
+}
+
+/*---------------------------------- pagination ----------------------------------*/
+
+ul.pagination{
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+ul.pagination li:first-child{
+  border-top: 2px dashed #4B5F5F;
+  border-bottom: 2px dashed #4B5F5F;
+  border-left: 2px dashed #4B5F5F;
+  border-radius: 5px;
+}
+
+.pagination .page-item {
+  border-top: 2px dashed #4B5F5F;
+  border-bottom: 2px dashed #4B5F5F;
+  border-left: 0;
+  border-right: 0;
+}
+
+
+.pagination .page-link{
+  border: 0;
+}
+
+ul.pagination li:last-child{
+  border-top: 2px dashed #4B5F5F;
+  border-bottom: 2px dashed #4B5F5F;
+  border-right: 2px dashed #4B5F5F;
+  border-radius: 5px;
+}
+
+.page-item.active .page-link {
+  color: #4B5F5F;
+  background-color: #fff;
+  border-color: transparent;
+}
+
+.page-item.disabled .page-link {
+  color: #4B5F5F;
+}
+
+.page-link {
+  color: #BDCACA;
+}
+
+.page-link:focus, .page-link:hover {
+  color: #4B5F5F;
+  text-decoration: none;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+div.text-center{
+  height: 80px;
+  background-color: #F8FAFA;
+}
+
+/*---------------------------------- reponsive ----------------------------------*/
+
+
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  ul{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  ul{
+    justify-content: center;
+  }
+  section{
+    height: 600px;
+    flex-direction: column;
+  }
+
+  #post img{
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
+
+  section > div:last-child > div:first-child{
+    margin-top: 0;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,32 @@
+@import '_common.scss';
+
+header{
+  padding: 40px 0 50px 0;
+  background-color: #F3F8FB;
+}
+
+/*---------------------------------- content (beaucoup  de style directement dans la vue) ----------------------------------*/
+
+#content{
+  background-color: #FFFBEE;
+  padding: 20px;
+
+  > div:first-child{
+    padding: 15px 15px 25px 15px;
+    background-color: #fff;
+    font-family: "Montserrat", Arial, serif;
+    font-size: 16px;
+    border: 2px dashed #FFD455;
+    border-radius: 25px;
+  }
+
+  a {
+    color: #FFD455;
+    font-family: "Christmas Jumper", Arial, serif;
+  }
+
+  a:hover {
+    color: #FFAA2A;
+    text-decoration: none;
+  }
+}

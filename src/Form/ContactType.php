@@ -49,7 +49,9 @@ class ContactType extends AbstractType
                     new NotBlank(array("message" => "Veuillez saisir un message valide.")),
                     new Length(array(
                         'min' => '2',
-                        'minMessage' => 'Votre message doit comporter au minimun {{ limit }} caractères.'
+                        'max' => '10000',
+                        'minMessage' => 'Votre message doit comporter au minimun {{ limit }} caractères.',
+                        'maxMessage' => 'Votre message doit comporter au maximum {{ limit }} caractères.'
                     ))
                 )
             ))
