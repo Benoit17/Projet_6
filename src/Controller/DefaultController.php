@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -51,47 +51,6 @@ class DefaultController extends Controller
             'contactForm' => $contactForm->createView()
         ));
     }
-
-//    /**
-//     * @param Request $request
-//     * @param NewsManager $newsManager
-//     * @param \Swift_Mailer $mailer
-//     * @return \Symfony\Component\HttpFoundation\Response
-//     *
-//     * @Route("/", name="homepage")
-//     */
-//    public function index(Request $request, NewsManager $newsManager, \Swift_Mailer $mailer)
-//    {
-//        // Récupération des 3 derniers articles rédigés
-//        $threeLastPosts = $newsManager->getThreeLastPosts();
-//
-//        $contactForm = $this->createForm(ContactType::class);
-//
-//        $contactForm->handleRequest($request);
-//
-//        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
-//
-//            $data = $contactForm->getData();
-//
-//            $message = (new \Swift_Message('Hello Email'))
-//                ->setFrom($data['email'])
-//                ->setTo('dumaschaumette@gmail.com')
-//                ->setBody(
-//                    $data['message'],
-//                    'text/plain'
-//                );
-//
-//            $mailer->send($message);
-//
-//            return $this->redirectToRoute('homepage');
-//        }
-//        // replace this example code with whatever you need
-//        return $this->render('default/index.html.twig', array(
-//            'threeLastPosts' => $threeLastPosts,
-//            'contactForm' => $contactForm->createView()
-//        ));
-//    }
-
 
     /**
      * @param AuthenticationUtils $authUtils

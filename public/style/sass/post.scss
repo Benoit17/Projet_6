@@ -30,3 +30,10 @@ header{
     text-decoration: none;
   }
 }
+
+@media (max-width: 600px) {
+  #content > div:first-child > div:last-child img{
+      max-width: 300px !important;
+      height: auto;
+  }
+}
