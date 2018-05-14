@@ -29,6 +29,7 @@ class NewsManager
         $this->postsDirectory = $postsDirectory;
         $this->paginator = $paginator;
     }
+
     /* Gestion des articles */
     public function getPost($id) {
         // Récupération d'un article par son id
@@ -36,12 +37,14 @@ class NewsManager
         // Retourne l'article récupéré
         return $post;
     }
+
     public function getPosts() {
         // Récupération de tous les articles existant
         $post = $this->em->getRepository('App:Post')->findAll();
         // Retourne l'article récupéré
         return $post;
     }
+
     public function getThreeLastPosts() {
         $threeLastPosts = $this->em->getRepository('App:Post')
             ->findBy(
@@ -50,12 +53,7 @@ class NewsManager
                 3);
         return $threeLastPosts;
     }
-    public function getPostsNumber() {
-        // Récupération des commentaires signalés
-        $postsNumber = $this->em->getRepository('App:Post')->getPostsNumber();
-        // Retourne les commentaires
-        return $postsNumber;
-    }
+
     public function setPost(Post $post) {
         // Publication automatique de l'article
         $post->setPublished(1);
@@ -95,6 +93,7 @@ class NewsManager
         $this->em->remove($post);
         $this->em->flush();
     }
+    
     /* PAGINATEUR */
     /**
      * Pagine la liste de tous les articles
@@ -106,21 +105,12 @@ class NewsManager
         $postsList = $this->getPosts();
         // récupère le service knp paginator
         $paginator  = $this->paginator;
-        // retourne les questions /réponse paginé selon la page passé en get
+
         return $paginator->paginate(
             $postsList/*$query*/, /* query NOT result */
             $this->request->getCurrentRequest()->query->getInt('page', 1)/*page number*/,
             5/*limit per page*/
         );
     }
-    
-//    public function getPhotosPath() {
-//        // Récupération des articles
-//        $posts = $this->getPosts();
-//        $photos = array();
-//        foreach ($posts as $post) {
-//            array_push($photos, $post->getImagePath());
-//        }
-//        return $photos;
-//    }
+
 }

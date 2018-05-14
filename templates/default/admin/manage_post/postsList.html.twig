@@ -1,4 +1,16 @@
 <section id="posts_list">
+    <div class="d-flex justify-content-center" style="margin: 20px auto 50px auto; color: #34729E;">
+        <a href="{{ path("write-post") }}" style=""><img src="{{ asset('img/arrow-left.png') }}" alt="flèche_gauche" style="height: 25px; width: 25px;"></a>
+        <h1 style=" padding: 0 15px 25px 15px; border-bottom: 1px dashed black; border-radius: 50%;">Gestions des articles</h1>
+        <a href="{{ path("write-post") }}"><img src="{{ asset('img/arrow-right.png') }}" alt="flèche_droite" style="height: 25px; width: 25px;"></a>
+    </div>
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     {% if posts %}
         <div class="table-responsive">
             <table class="table table-hover table-condensed">

@@ -6,18 +6,15 @@
 
 {% block body %}
 
-    <section id="administration" class="d-flex flex-column">
+    {% include 'default/admin/write_post/picture.html.twig' %}
 
-        <div style="margin: auto;">
-            <h1 class="text-center">Administration</h1>
+    <span class="border-yellow"></span>
 
-            <div>
-                <a href="{{ path('manage-post') }}" class="d-flex justify-content-center align-items-center">Gestion des articles</a>
-                <a href="{{ path('write-post') }}" class="d-flex justify-content-center align-items-center">Ecrire un article</a>
-            </div>
-        </div>
+    {% include 'default/admin/write_post/title.html.twig' %}
 
-    </section>
+    <span class="border-pink"></span>
+
+    {% include 'default/admin/write_post/content.html.twig' %}
 
 
 {% endblock %}

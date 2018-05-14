@@ -23,6 +23,7 @@ class DefaultController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @Route("/", name="homepage")
+     * @Method({"GET", "POST"})
      */
     public function index(Request $request, NewsManager $newsManager, MailManager $mailManager)
     {
@@ -103,13 +104,12 @@ class DefaultController extends Controller
     /**
      * @param $id
      * @param NewsManager $newsManager
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      *
      * @Route("/actualites/article/{id}", name="view-post")
      * @Method({"GET", "POST"})
      */
-    public function post($id, NewsManager $newsManager, Request $request) {
+    public function post($id, NewsManager $newsManager) {
         // Récupération de l'article via son id
         $post = $newsManager->getPost($id);
 
@@ -120,15 +120,5 @@ class DefaultController extends Controller
             'post' => $post,
             'threeLastPost' => $threeLastPost,
         ));
-    }
-    
-    /**
-     * @param Request $request
-     * @return Response
-     *
-     *
-     */
-    public function contact(Request $request){
-
     }
 }

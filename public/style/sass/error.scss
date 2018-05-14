@@ -5,14 +5,14 @@ header{
 section.panel-body.text-center{
   display: flex;
   height: 100vh;
-  background-color: #FFF5FA;
+  background-color: #ff9999;
 
   div:first-child{
     display: flex;
     padding: 50px;
     margin: auto;
     background-color: #fff;
-    border: 2px dashed #FF99CC;
+    border: 2px dashed #FF5556;
     border-radius: 50%;
     width: 50%;
   }
@@ -24,12 +24,12 @@ section.panel-body.text-center{
   }
 
   a {
-    color: #FF99CC;
+    color: #FF5556;
     font-family: "Christmas Jumper", Arial, serif;
   }
 
   a:hover {
-    color: #FF99CC;
+    color: #FF5556;
     text-decoration: none;
   }
 }

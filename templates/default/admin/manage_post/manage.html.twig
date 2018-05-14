@@ -6,19 +6,7 @@
 
 {% block body %}
 
-    <section id="administration" class="d-flex flex-column">
-
-        <div style="margin: auto;">
-            <h1 class="text-center">Administration</h1>
-
-            <div>
-                <a href="{{ path('manage-post') }}" class="d-flex justify-content-center align-items-center">Gestion des articles</a>
-                <a href="{{ path('write-post') }}" class="d-flex justify-content-center align-items-center">Ecrire un article</a>
-            </div>
-        </div>
-
-    </section>
-
+    {% include 'default/admin/manage_post/postsList.html.twig' %}
 
 {% endblock %}
 

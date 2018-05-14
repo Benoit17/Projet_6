@@ -4,13 +4,13 @@ header {
 section.panel-body.text-center {
   display: flex;
   height: 100vh;
-  background-color: #FFF5FA; }
+  background-color: #ff9999; }
   section.panel-body.text-center div:first-child {
     display: flex;
     padding: 50px;
     margin: auto;
     background-color: #fff;
-    border: 2px dashed #FF99CC;
+    border: 2px dashed #FF5556;
     border-radius: 50%;
     width: 50%; }
   section.panel-body.text-center p {
@@ -18,10 +18,10 @@ section.panel-body.text-center {
     font-family: "Montserrat", Arial, serif;
     font-size: 22px; }
   section.panel-body.text-center a {
-    color: #FF99CC;
+    color: #FF5556;
     font-family: "Christmas Jumper", Arial, serif; }
   section.panel-body.text-center a:hover {
-    color: #FF99CC;
+    color: #FF5556;
     text-decoration: none; }
 
 /*---------------------------------- Responsive ----------------------------------*/
