@@ -10,4 +10,4 @@ Contexte
 
 Etant parti sur plusieurs idées qui n’ont pas abouti car trop complexes à mettre en œuvre, j’ai finalement choisi de réaliser un site destiné à une association. Riv’Sourires, basée à Rivedoux-Plage regroupe majoritairement des retraitées passionnées de tricots. Elles créent principalement « des manchons de stimulation sensorielle » qui sont destinées à aider les malades d’Alzheimer en stimulant leur sens du toucher.
 
-Après discussion avec les présidentes de cette association Chantal et Marie-Francçoise, il en est ressorti que leur besoin s’orientait plutôt vers un site vitrine pour présenter l’association, avec une partie blog pour afficher leurs actualités. Ce site leur permettra de rester visible sur le web et d’être contacter par tout donateur potentiel.
+Après discussion avec les présidentes de cette association Chantal et Marie-Francçoise, il en est ressorti que leur besoin s’orientait plutôt vers un site vitrine pour présenter l’association, avec une partie blog pour afficher leurs actualités. Ce site leur permettra de rester visibles sur le web et d’être contactées par tout donateur potentiel.
