@@ -35,7 +35,7 @@ $(document).ready(function () {
                             data: $form.serialize(),
                             success: function () {
                                 //En cas de succes on recharge la page
-                                location.href="http://localhost/projet_6/public/index.php/admin";
+                                location.href="http://localhost/projet_6/public/index.php/administration";
                             },
                             error: function (jqxhr) {
                                 //En cas d'erreur on affiche un message d'erreur
